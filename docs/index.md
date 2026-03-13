@@ -1,27 +1,40 @@
 # Collection Data: Ecosystem & Governance
 
-**Version 1.0.1** | **Status: Active**
+**Version 1.0.2** | **Status: Active**
 
 ---
 
-Transforming historical archives into a functional digital product requires strict governance, robust metadata schemas, and a unified voice. This documentation portal serves as the single source of truth for engineering, curatorial, and content design teams working with collection data.
+## The Collection Dataset
+The Museum of Modern Art (MoMA) maintains a living, open-source repository of its collection data. This dataset encompasses over 140,000 artworks and 15,000 artists, spanning curatorial departments from Photography and Architecture to Media & Performance. The raw data provides comprehensive, historical metadata including accession numbers, medium descriptions, dimensions, and precise curatorial classifications.
+
+## Ecosystem Objectives
+Transforming a continuously evolving historical archive into a functional digital product presents significant architectural challenges. This documentation portal serves as the single source of truth for engineering, curatorial, and content design teams, bridging the gap between raw data and end-user application. 
+
+This governance framework is designed to accomplish three primary objectives:
+
+1. **Data Standardization:** Establish strict structural rules for data architects and catalogers to ensure schema interoperability across all internal databases.
+2. **Content Consistency:** Provide curators and UX writers with rigorous voice, tone, and accessibility guidelines to maintain an inclusive, global editorial standard.
+3. **Programmatic Access:** Equip developers and external partners with the precise technical specifications required to seamlessly integrate the collection database into consumer applications and academic research models.
+
+---
 
 ## Documentation Architecture
 
-This ecosystem is structured into three core pillars to support cross-functional teams globally.
+Navigate the ecosystem via the core pillars below.
 
 ### [Metadata Schema](schema/artworks.md)
-**For Data Architects & Catalogers** The structural rules for our data. Standardized dictionaries for artworks and artists, detailing exact data types, controlled vocabularies, and requirement levels to ensure seamless interoperability.
+**For Data Architects & Catalogers** The structural dictionary for artworks and artists, detailing exact data types, controlled vocabularies, and requirement levels.
 
-### [Content Strategy & Voice](strategy/style-guide.md)
-**For Curators, UX Writers & Marketers** The guidelines for how we communicate. This section covers overarching voice principles, contextual tone mapping, and rigorous accessibility standards (including alt-text requirements) to ensure a globally inclusive user experience.
+### [Voice & Tone](strategy/style-guide.md)
+**For Curators, UX Writers & Marketers** Overarching voice principles, contextual tone mapping, and rigorous accessibility standards (including alt-text requirements).
 
 ### API Reference
 **For Developers & External Partners** The technical specifications for programmatically querying the collection database. 
 
-- [Authentication & Limits](api/authentication.md): Public access rules and standard throttling.
-- [Endpoints](api/endpoints.md): Available GET requests, parameters, and JSON payloads.
-- [Error Handling](api/errors.md): Standardized HTTP status codes and resolutions.
+* [API Overview](api/index.md): Dataset context and technical navigation.
+* [Authentication & Limits](api/authentication.md): Public access rules and standard throttling.
+* [Endpoints](api/endpoints.md): Available GET requests, parameters, and JSON payloads.
+* [Error Handling](api/errors.md): Standardized HTTP status codes and resolutions.
 
 ---
 
