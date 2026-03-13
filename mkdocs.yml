@@ -1,0 +1,15 @@
+site_name: Collection Data Ecosystem
+
+theme:
+  name: material
+  palette:
+    primary: black
+    accent: black
+  features:
+    - navigation.tabs
+
+nav:
+  - Overview: index.md
+  - Metadata Schema: schema/artworks.md
+  - Content Strategy: strategy/style-guide.md
+  - API Reference: api/reference.md
