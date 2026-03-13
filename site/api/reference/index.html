@@ -1,0 +1,1052 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../strategy/style-guide/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>API Reference - Collection Data Ecosystem</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="black">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#collection-api-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Collection Data Ecosystem" class="md-header__button md-logo" aria-label="Collection Data Ecosystem" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Collection Data Ecosystem
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schema/artworks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Metadata Schema
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../strategy/style-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Content Strategy
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Collection Data Ecosystem" class="md-nav__button md-logo" aria-label="Collection Data Ecosystem" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Collection Data Ecosystem
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/artworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../strategy/style-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication &amp; Limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-list-artworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01. List Artworks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="01. List Artworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response-200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-retrieve-specific-artwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02. Retrieve Specific Artwork
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="02. Retrieve Specific Artwork">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response-200-ok_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-error-response-404-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Error Response (404 Not Found)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication &amp; Limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-list-artworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01. List Artworks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="01. List Artworks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response-200-ok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-retrieve-specific-artwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02. Retrieve Specific Artwork
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="02. Retrieve Specific Artwork">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-request_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response-200-ok_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Response (200 OK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-error-response-404-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Error Response (404 Not Found)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="collection-api-reference">Collection API Reference</h1>
+<p><strong>Version 2.0.1</strong> | <strong>Status: Active</strong></p>
+<hr />
+<p>The Collection API provides programmatic, read-only access to the catalog of artworks and artists. This RESTful API returns data in JSON format and is designed to support academic research, external application development, and internal curatorial tools.</p>
+<h2 id="authentication-limits">Authentication &amp; Limits</h2>
+<p>The Collection API is open for public <code>GET</code> requests and does not require an API key for basic querying. All requests must be made over HTTPS. Plain HTTP requests are refused.</p>
+<p>To ensure infrastructure stability, unauthenticated requests are strictly governed by the following limits:</p>
+<ul>
+<li><strong>Rate Limit:</strong> 60 requests per minute per IP address.</li>
+<li><strong>Pagination Limit:</strong> Maximum 100 objects per response payload.</li>
+</ul>
+<p>Exceeding the rate limit will result in a <code>429 Too Many Requests</code> response. Enterprise clients requiring higher throughput must append an <code>X-Client-ID</code> header to bypass standard throttling.</p>
+<hr />
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="01-list-artworks">01. List Artworks</h3>
+<p>Retrieve a paginated list of artworks in the collection.</p>
+<p><strong><code>GET /artworks</code></strong></p>
+<h4 id="query-parameters">Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>page</code></td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">The page number to retrieve.</td>
+<td style="text-align: left;"><code>1</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>limit</code></td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">The number of results per page (Max: 100).</td>
+<td style="text-align: left;"><code>20</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>department</code></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Filter by curatorial department.</td>
+<td style="text-align: left;"><code>null</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>has_image</code></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Filter for works with digitized public domain images.</td>
+<td style="text-align: left;"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-request">Example Request</h4>
+<pre><code class="language-bash">curl -X GET &quot;[https://api.moma.org/v2/artworks?department=Photography&amp;limit=2](https://api.moma.org/v2/artworks?department=Photography&amp;limit=2)&quot; \
+  -H &quot;Accept: application/json&quot;
+</code></pre>
+<h4 id="example-response-200-ok">Example Response (200 OK)</h4>
+<pre><code class="language-json">{
+  &quot;pagination&quot;: {
+    &quot;total&quot;: 14205,
+    &quot;page&quot;: 1,
+    &quot;limit&quot;: 2
+  },
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: 4362,
+      &quot;title&quot;: &quot;Migrant Mother, Nipomo, California&quot;,
+      &quot;artist&quot;: &quot;Dorothea Lange&quot;,
+      &quot;date&quot;: &quot;1936&quot;,
+      &quot;department&quot;: &quot;Photography&quot;
+    },
+    {
+      &quot;id&quot;: 8921,
+      &quot;title&quot;: &quot;Moonrise, Hernandez, New Mexico&quot;,
+      &quot;artist&quot;: &quot;Ansel Adams&quot;,
+      &quot;date&quot;: &quot;1941&quot;,
+      &quot;department&quot;: &quot;Photography&quot;
+    }
+  ]
+}
+</code></pre>
+<hr />
+<h3 id="02-retrieve-specific-artwork">02. Retrieve Specific Artwork</h3>
+<p>Retrieve detailed, singular metadata for an artwork using its unique system identifier.</p>
+<p><strong><code>GET /artworks/{id}</code></strong></p>
+<h4 id="path-parameters">Path Parameters</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;"><strong>Yes</strong></td>
+<td style="text-align: left;">The unique <code>ObjectID</code> assigned at ingestion.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="example-request_1">Example Request</h4>
+<pre><code class="language-bash">curl -X GET &quot;[https://api.moma.org/v2/artworks/4362](https://api.moma.org/v2/artworks/4362)&quot; \
+  -H &quot;Accept: application/json&quot;
+</code></pre>
+<h4 id="example-response-200-ok_1">Example Response (200 OK)</h4>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;id&quot;: 4362,
+    &quot;accession_number&quot;: &quot;341.1937&quot;,
+    &quot;title&quot;: &quot;Migrant Mother, Nipomo, California&quot;,
+    &quot;artist&quot;: &quot;Dorothea Lange&quot;,
+    &quot;date&quot;: &quot;1936&quot;,
+    &quot;medium&quot;: &quot;Gelatin silver print&quot;,
+    &quot;dimensions&quot;: &quot;11 1/8 x 8 9/16\&quot; (28.3 x 21.8 cm)&quot;,
+    &quot;department&quot;: &quot;Photography&quot;,
+    &quot;url&quot;: &quot;[https://www.moma.org/collection/works/4362](https://www.moma.org/collection/works/4362)&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<p>The API utilizes standard HTTP status codes to indicate the success or failure of a request. When an error occurs, the response body will contain a standardized JSON payload outlining the issue.</p>
+<h4 id="example-error-response-404-not-found">Example Error Response (404 Not Found)</h4>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: 404,
+    &quot;type&quot;: &quot;ResourceNotFoundError&quot;,
+    &quot;message&quot;: &quot;Artwork with ObjectID 999999 does not exist in the catalog.&quot;
+  }
+}
+</code></pre>
+<h4 id="status-codes">Status Codes</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>200</code></td>
+<td style="text-align: left;">OK</td>
+<td style="text-align: left;">Request succeeded.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>400</code></td>
+<td style="text-align: left;">Bad Request</td>
+<td style="text-align: left;">The request was malformed. Verify query parameters and syntax.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>404</code></td>
+<td style="text-align: left;">Not Found</td>
+<td style="text-align: left;">The requested resource (<code>ObjectID</code>) does not exist in the catalog.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>429</code></td>
+<td style="text-align: left;">Too Many Requests</td>
+<td style="text-align: left;">Rate limit exceeded. Pause requests for 60 seconds.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>500</code></td>
+<td style="text-align: left;">Internal Server Error</td>
+<td style="text-align: left;">Upstream catalog sync failure. Check system status.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

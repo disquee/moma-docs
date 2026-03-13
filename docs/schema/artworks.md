@@ -1,4 +1,4 @@
-# Artworks Metadata Dictionary
+# Artworks Metadata Schema
 **Version:** 1.0.0  
 **Status:** Published  
 **Owner:** Content Strategy & Engineering
@@ -7,7 +7,7 @@ This dictionary defines the standard metadata schema for the MoMA collection dat
 
 ---
 
-## 1. Core Identification Fields
+## Core Identification Fields
 These fields are required for every object ingested into the collection database.
 
 | Field Name | Data Type | Requirement | Description | Example |
@@ -19,7 +19,7 @@ These fields are required for every object ingested into the collection database
 
 ---
 
-## 2. Classification & Categorization
+## Classification & Categorization
 Fields used for filtering, faceted search, and information architecture.
 
 ### **Department (`Department`)**
@@ -34,7 +34,7 @@ Fields used for filtering, faceted search, and information architecture.
 
 ---
 
-## 3. Physical Attributes
+## Physical Attributes
 Technical specifications for archival and display purposes.
 
 | Field Name | Format | Logic |
@@ -45,7 +45,7 @@ Technical specifications for archival and display purposes.
 
 ---
 
-## 4. Content Governance & Style
+## Content Governance & Style
 To maintain a global content ecosystem, follow these formatting rules:
 
 * **Artist Names:** Always use *First Name Last Name* format. Do not use all caps.

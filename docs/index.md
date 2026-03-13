@@ -1,6 +1,6 @@
 # Collection Data: Ecosystem & Governance
 
-**Version 1.0.0** | **Status: Active**
+**Version 1.0.1** | **Status: Active**
 
 ---
 
@@ -10,14 +10,18 @@ Transforming historical archives into a functional digital product requires stri
 
 This ecosystem is structured into three core pillars to support cross-functional teams globally.
 
-### [01. Metadata Schema](schema/artworks.md)
+### [Metadata Schema](schema/artworks.md)
 **For Data Architects & Catalogers** The structural rules for our data. Standardized dictionaries for artworks and artists, detailing exact data types, controlled vocabularies, and requirement levels to ensure seamless interoperability.
 
-### [02. Content Strategy & Voice](strategy/style-guide.md)
+### [Content Strategy & Voice](strategy/style-guide.md)
 **For Curators, UX Writers & Marketers** The guidelines for how we communicate. This section covers overarching voice principles, contextual tone mapping, and rigorous accessibility standards (including alt-text requirements) to ensure a globally inclusive user experience.
 
-### [03. API Reference](api/reference.md)
-**For Developers & External Partners** The technical specifications for programmatically querying the collection. Includes endpoint definitions, authentication protocols, rate limits, and standard error handling for the REST API.
+### API Reference
+**For Developers & External Partners** The technical specifications for programmatically querying the collection database. 
+
+- [Authentication & Limits](api/authentication.md): Public access rules and standard throttling.
+- [Endpoints](api/endpoints.md): Available GET requests, parameters, and JSON payloads.
+- [Error Handling](api/errors.md): Standardized HTTP status codes and resolutions.
 
 ---
 
