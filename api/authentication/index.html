@@ -415,24 +415,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-error-response-404-not-found" class="md-nav__link">
+  <a href="#authentication-limits-quotas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Error Response (404 Not Found)
+        Authentication Limits &amp; Quotas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Limits &amp; Quotas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limit Tiers
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#status-codes" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit-headers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Codes
+        Rate Limit Headers
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceeding-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceeding Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -535,24 +563,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-error-response-404-not-found" class="md-nav__link">
+  <a href="#authentication-limits-quotas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Error Response (404 Not Found)
+        Authentication Limits &amp; Quotas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication Limits &amp; Quotas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate Limit Tiers
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#status-codes" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit-headers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Codes
+        Rate Limit Headers
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceeding-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceeding Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -624,53 +680,46 @@
 <h1 id="authentication-limits">Authentication &amp; Limits</h1>
 <p><strong>Version 2.0.1</strong> | <strong>Status: Active</strong></p>
 <hr />
-<p>The API utilizes standard HTTP status codes to indicate the success or failure of a request. When an error occurs, the response body will contain a standardized JSON payload outlining the issue.</p>
-<h2 id="example-error-response-404-not-found">Example Error Response (404 Not Found)</h2>
-<pre><code class="language-json">{
-  &quot;error&quot;: {
-    &quot;code&quot;: 404,
-    &quot;type&quot;: &quot;ResourceNotFoundError&quot;,
-    &quot;message&quot;: &quot;Artwork with ObjectID 999999 does not exist in the catalog.&quot;
-  }
-}
-</code></pre>
-<h2 id="status-codes">Status Codes</h2>
+<h2 id="authentication-limits-quotas">Authentication Limits &amp; Quotas</h2>
+<p>To ensure platform stability and fair data access across the ecosystem, the MoMA API enforces strict rate limiting tied to your authentication credentials. Limits are enforced on a rolling 60-minute window based on your API key.</p>
+<h3 id="rate-limit-tiers">Rate Limit Tiers</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Status</th>
-<th style="text-align: left;">Resolution</th>
+<th style="text-align: left;">Access Tier</th>
+<th style="text-align: left;">Quota (Rolling 60m)</th>
+<th style="text-align: left;">Eligibility Requirements</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>200</code></td>
-<td style="text-align: left;">OK</td>
-<td style="text-align: left;">Request succeeded.</td>
+<td style="text-align: left;"><strong>Standard</strong></td>
+<td style="text-align: left;">1,000 requests</td>
+<td style="text-align: left;">Default for public researchers, students, and educators.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>400</code></td>
-<td style="text-align: left;">Bad Request</td>
-<td style="text-align: left;">The request was malformed. Verify query parameters and syntax.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>404</code></td>
-<td style="text-align: left;">Not Found</td>
-<td style="text-align: left;">The requested resource (<code>ObjectID</code>) does not exist in the catalog.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>429</code></td>
-<td style="text-align: left;">Too Many Requests</td>
-<td style="text-align: left;">Rate limit exceeded. Pause requests for 60 seconds.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>500</code></td>
-<td style="text-align: left;">Internal Server Error</td>
-<td style="text-align: left;">Upstream catalog sync failure. Check system status.</td>
+<td style="text-align: left;"><strong>Enterprise</strong></td>
+<td style="text-align: left;">50,000 requests</td>
+<td style="text-align: left;">Requires approved partner, institutional, or commercial status.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="rate-limit-headers">Rate Limit Headers</h3>
+<p>Every authenticated response includes standard HTTP headers detailing your current usage status. We strongly recommend engineering your application's logic to monitor and respect these headers to avoid service interruption.</p>
+<ul>
+<li><code>X-RateLimit-Limit</code>: The maximum number of requests permitted in the current window.</li>
+<li><code>X-RateLimit-Remaining</code>: The number of requests remaining before a throttle is applied.</li>
+<li><code>X-RateLimit-Reset</code>: The time at which the current rate limit window resets (in UTC epoch seconds).</li>
+</ul>
+<h3 id="exceeding-limits">Exceeding Limits</h3>
+<p>If your application exhausts its allocated quota, the authentication gateway will reject subsequent requests and return a <code>429 Too Many Requests</code> status code. </p>
+<p><strong>Error Response (429):</strong></p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;rate_limit_exceeded&quot;,
+  &quot;message&quot;: &quot;You have exceeded your API rate limit. Please retry after the timestamp indicated in the Retry-After header.&quot;,
+  &quot;retry_after&quot;: 1678883400
+}
+</code></pre>
 
 
 
