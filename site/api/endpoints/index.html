@@ -443,10 +443,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-error-response-404-not-found" class="md-nav__link">
+  <a href="#generate-an-access-token" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Error Response (404 Not Found)
+        Generate an Access Token
       
     </span>
   </a>
@@ -454,10 +454,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-codes" class="md-nav__link">
+  <a href="#verify-key-status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Codes
+        Verify Key Status
       
     </span>
   </a>
@@ -535,10 +535,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-error-response-404-not-found" class="md-nav__link">
+  <a href="#generate-an-access-token" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Error Response (404 Not Found)
+        Generate an Access Token
       
     </span>
   </a>
@@ -546,10 +546,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-codes" class="md-nav__link">
+  <a href="#verify-key-status" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Status Codes
+        Verify Key Status
       
     </span>
   </a>
@@ -624,53 +624,29 @@
 <h1 id="endpoints">Endpoints</h1>
 <p><strong>Version 2.0.1</strong> | <strong>Status: Active</strong></p>
 <hr />
-<p>The API utilizes standard HTTP status codes to indicate the success or failure of a request. When an error occurs, the response body will contain a standardized JSON payload outlining the issue.</p>
-<h2 id="example-error-response-404-not-found">Example Error Response (404 Not Found)</h2>
+<p>The MoMA API utilizes dedicated endpoints to manage your authentication tokens and verify access scopes. You must route all authentication requests through the <code>/v1/auth/</code> path.</p>
+<h3 id="generate-an-access-token">Generate an Access Token</h3>
+<p>Exchange your client credentials for a temporary bearer token to access protected data endpoints. Tokens are valid for 3600 seconds (1 hour).</p>
+<p><strong>Endpoint:</strong> <code>POST /v1/auth/token</code></p>
+<p><strong>Request Body:</strong></p>
 <pre><code class="language-json">{
-  &quot;error&quot;: {
-    &quot;code&quot;: 404,
-    &quot;type&quot;: &quot;ResourceNotFoundError&quot;,
-    &quot;message&quot;: &quot;Artwork with ObjectID 999999 does not exist in the catalog.&quot;
-  }
+  &quot;client_id&quot;: &quot;YOUR_CLIENT_ID&quot;,
+  &quot;client_secret&quot;: &quot;YOUR_CLIENT_SECRET&quot;,
+  &quot;grant_type&quot;: &quot;client_credentials&quot;
 }
 </code></pre>
-<h2 id="status-codes">Status Codes</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Code</th>
-<th style="text-align: left;">Status</th>
-<th style="text-align: left;">Resolution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>200</code></td>
-<td style="text-align: left;">OK</td>
-<td style="text-align: left;">Request succeeded.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>400</code></td>
-<td style="text-align: left;">Bad Request</td>
-<td style="text-align: left;">The request was malformed. Verify query parameters and syntax.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>404</code></td>
-<td style="text-align: left;">Not Found</td>
-<td style="text-align: left;">The requested resource (<code>ObjectID</code>) does not exist in the catalog.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>429</code></td>
-<td style="text-align: left;">Too Many Requests</td>
-<td style="text-align: left;">Rate limit exceeded. Pause requests for 60 seconds.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>500</code></td>
-<td style="text-align: left;">Internal Server Error</td>
-<td style="text-align: left;">Upstream catalog sync failure. Check system status.</td>
-</tr>
-</tbody>
-</table>
+<h3 id="verify-key-status">Verify Key Status</h3>
+<p>Check the validity, operational scope, and expiration timeline of your current API key without triggering a data query.</p>
+<p><strong>Endpoint:</strong> <code>GET /v1/auth/verify</code></p>
+<p><strong>Headers:</strong>
+<code>Authorization: Bearer &lt;YOUR_API_KEY&gt;</code></p>
+<p><strong>Success Response (200 OK):</strong></p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;active&quot;,
+  &quot;scopes&quot;: [&quot;read:artworks&quot;, &quot;read:exhibitions&quot;],
+  &quot;expires_at&quot;: &quot;2026-12-31T23:59:59Z&quot;
+}
+</code></pre>
 
 
 
