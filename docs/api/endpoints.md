@@ -4,26 +4,35 @@
 
 ---
 
-The API utilizes standard HTTP status codes to indicate the success or failure of a request. When an error occurs, the response body will contain a standardized JSON payload outlining the issue.
+The MoMA API utilizes dedicated endpoints to manage your authentication tokens and verify access scopes. You must route all authentication requests through the `/v1/auth/` path.
 
-## Example Error Response (404 Not Found)
+### Generate an Access Token
+Exchange your client credentials for a temporary bearer token to access protected data endpoints. Tokens are valid for 3600 seconds (1 hour).
 
+**Endpoint:** `POST /v1/auth/token`
+
+**Request Body:**
 ```json
 {
-  "error": {
-    "code": 404,
-    "type": "ResourceNotFoundError",
-    "message": "Artwork with ObjectID 999999 does not exist in the catalog."
-  }
+  "client_id": "YOUR_CLIENT_ID",
+  "client_secret": "YOUR_CLIENT_SECRET",
+  "grant_type": "client_credentials"
 }
 ```
 
-## Status Codes
+### Verify Key Status
+Check the validity, operational scope, and expiration timeline of your current API key without triggering a data query.
 
-| Code | Status | Resolution |
-| :--- | :--- | :--- |
-| `200` | OK | Request succeeded. |
-| `400` | Bad Request | The request was malformed. Verify query parameters and syntax. |
-| `404` | Not Found | The requested resource (`ObjectID`) does not exist in the catalog. |
-| `429` | Too Many Requests | Rate limit exceeded. Pause requests for 60 seconds. |
-| `500` | Internal Server Error | Upstream catalog sync failure. Check system status. |
+**Endpoint:** `GET /v1/auth/verify`
+
+**Headers:**
+`Authorization: Bearer <YOUR_API_KEY>`
+
+**Success Response (200 OK):**
+```json
+{
+  "status": "active",
+  "scopes": ["read:artworks", "read:exhibitions"],
+  "expires_at": "2026-12-31T23:59:59Z"
+}
+```
