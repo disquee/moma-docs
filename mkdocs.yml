@@ -13,7 +13,7 @@ nav:
   - Overview: index.md
   - Metadata Schema: schema/artworks.md
   - Voice & Tone: strategy/style-guide.md
-  - API Reference:
+  - API Reference: 
       - api/index.md
       - Authentication & Limits: api/authentication.md
       - Endpoints: api/endpoints.md

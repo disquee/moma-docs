@@ -4,26 +4,32 @@
 
 ---
 
-The API utilizes standard HTTP status codes to indicate the success or failure of a request. When an error occurs, the response body will contain a standardized JSON payload outlining the issue.
+## Authentication Limits & Quotas
 
-## Example Error Response (404 Not Found)
+To ensure platform stability and fair data access across the ecosystem, the MoMA API enforces strict rate limiting tied to your authentication credentials. Limits are enforced on a rolling 60-minute window based on your API key.
 
+### Rate Limit Tiers
+
+| Access Tier | Quota (Rolling 60m) | Eligibility Requirements |
+| :--- | :--- | :--- |
+| **Standard** | 1,000 requests | Default for public researchers, students, and educators. |
+| **Enterprise** | 50,000 requests | Requires approved partner, institutional, or commercial status. |
+
+### Rate Limit Headers
+Every authenticated response includes standard HTTP headers detailing your current usage status. We strongly recommend engineering your application's logic to monitor and respect these headers to avoid service interruption.
+
+* `X-RateLimit-Limit`: The maximum number of requests permitted in the current window.
+* `X-RateLimit-Remaining`: The number of requests remaining before a throttle is applied.
+* `X-RateLimit-Reset`: The time at which the current rate limit window resets (in UTC epoch seconds).
+
+### Exceeding Limits
+If your application exhausts its allocated quota, the authentication gateway will reject subsequent requests and return a `429 Too Many Requests` status code. 
+
+**Error Response (429):**
 ```json
 {
-  "error": {
-    "code": 404,
-    "type": "ResourceNotFoundError",
-    "message": "Artwork with ObjectID 999999 does not exist in the catalog."
-  }
+  "error": "rate_limit_exceeded",
+  "message": "You have exceeded your API rate limit. Please retry after the timestamp indicated in the Retry-After header.",
+  "retry_after": 1678883400
 }
 ```
-
-## Status Codes
-
-| Code | Status | Resolution |
-| :--- | :--- | :--- |
-| `200` | OK | Request succeeded. |
-| `400` | Bad Request | The request was malformed. Verify query parameters and syntax. |
-| `404` | Not Found | The requested resource (`ObjectID`) does not exist in the catalog. |
-| `429` | Too Many Requests | Rate limit exceeded. Pause requests for 60 seconds. |
-| `500` | Internal Server Error | Upstream catalog sync failure. Check system status. |
